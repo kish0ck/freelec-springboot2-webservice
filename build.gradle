@@ -1,0 +1,36 @@
+buildscript {
+    ext{                                        // ext : build.gradle에서 사용하는 전역변수를 설정하겠다.
+        springBootVersion = '2.1.7.RELEASE'     // springBootVersion 전역변수 생성 그값은 '2.1.7.REALEASE
+    }
+
+    repositories {     // 각종 의존성((라이브러리)들을 어떤 원격 저장소에서 받을지 정함
+        mavenCentral() // 기본적으로 많이 사용
+        jcenter()      // 최근에는 라이브러리 업로드 난이도 때문에 많이 사용, 라이브러리 업로드를 간단하게...
+    }
+
+    dependencies { // 프로젝트 개발에 필요한 의존성들을 선언하는 곳
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        // spring-boot-gradle-plugin라는 스프링 부트 그레이들 플로그인의 2.1.7.REALESE를 의존성으로 받겠다
+    }
+}
+
+
+// 앞서 선언한 플러그인 의존성들을 적용할 것인지 결정
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' // 스프링 부트의 의존성들을 관리해주는 플로그인이라 꼭 추가
+
+
+group 'com.kishock.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
