@@ -11,6 +11,7 @@ buildscript {
     dependencies { // 프로젝트 개발에 필요한 의존성들을 선언하는 곳
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         // spring-boot-gradle-plugin라는 스프링 부트 그레이들 플로그인의 2.1.7.REALESE를 의존성으로 받겠다
+
     }
 }
 
@@ -31,7 +32,8 @@ repositories {
 }
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile ('org.junit.jupiter:junit-jupiter:5.8.1')
+    compile('org.projectlombok:lombok')
 }
